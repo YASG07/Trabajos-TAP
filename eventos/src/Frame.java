@@ -1,6 +1,5 @@
 
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /*
@@ -10,23 +9,22 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
- * @author devilhunter
+ * @author Lenovo
  */
-public class Ventana extends javax.swing.JFrame implements ActionListener{
+public class Frame extends javax.swing.JFrame implements ActionListener{
 
     /**
-     * Creates new form Ventana
+     * Creates new form Frame
      */
-    public Ventana() {
+    public Frame() {
         initComponents();
         btnEvento2.addActionListener(this);
         btnEvento3.addActionListener(this);
-        Manejador m = new Manejador();
+        Frame.Manejador m = new Frame.Manejador();
         btnEvento4.addActionListener(m);
         btnEventoCAHU.addActionListener((java.awt.event.ActionEvent evt) -> {
             showMessageDialog(null, "Evento 1.5:Hecho por el usuario.");
         });
-        
     }
 
     /**
@@ -39,39 +37,58 @@ public class Ventana extends javax.swing.JFrame implements ActionListener{
     private void initComponents() {
 
         btnEvento1 = new javax.swing.JButton();
+        btnEventoCAHU = new javax.swing.JButton();
         btnEvento2 = new javax.swing.JButton();
         btnEvento3 = new javax.swing.JButton();
         btnEvento4 = new javax.swing.JButton();
-        btnEventoCAHU = new javax.swing.JButton();
-        accesoRapido2 = new MenuPrincipal.AccesoRapido();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Manejador de Eventos");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnEvento1.setText("Evento1");
+        btnEvento1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEvento1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEvento1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEvento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        btnEvento2.setText("Evento2");
-        getContentPane().add(btnEvento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
-
-        btnEvento3.setText("Evento3");
-        getContentPane().add(btnEvento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
-
-        btnEvento4.setText("Evento4");
-        getContentPane().add(btnEvento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
 
         btnEventoCAHU.setText("Evento1.5");
-        getContentPane().add(btnEventoCAHU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
 
-        accesoRapido2.setIcono(new javax.swing.ImageIcon(getClass().getResource("/1.png"))); // NOI18N
-        accesoRapido2.setTexto("Tienda");
-        getContentPane().add(accesoRapido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+        btnEvento2.setText("Evento2");
+
+        btnEvento3.setText("Evento3");
+
+        btnEvento4.setText("Evento4");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(121, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEvento1)
+                    .addComponent(btnEventoCAHU)
+                    .addComponent(btnEvento2)
+                    .addComponent(btnEvento3)
+                    .addComponent(btnEvento4))
+                .addGap(74, 74, 74))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 57, Short.MAX_VALUE)
+                .addComponent(btnEvento1)
+                .addGap(15, 15, 15)
+                .addComponent(btnEventoCAHU)
+                .addGap(15, 15, 15)
+                .addComponent(btnEvento2)
+                .addGap(15, 15, 15)
+                .addComponent(btnEvento3)
+                .addGap(15, 15, 15)
+                .addComponent(btnEvento4)
+                .addGap(0, 58, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -88,7 +105,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
 class Manejador implements ActionListener{
     public void actionPerformed(java.awt.event.ActionEvent evt) {
-        showMessageDialog(Ventana.this, "Evento 4: Clase interna manejador de eventos.");
+        showMessageDialog(Frame.this, "Evento 4: Clase interna manejador de eventos.");
     }//actionperformed
 }//class
     /**
@@ -108,26 +125,25 @@ class Manejador implements ActionListener{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana().setVisible(true);
+                new Frame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private MenuPrincipal.AccesoRapido accesoRapido2;
     private javax.swing.JButton btnEvento1;
     private javax.swing.JButton btnEvento2;
     private javax.swing.JButton btnEvento3;

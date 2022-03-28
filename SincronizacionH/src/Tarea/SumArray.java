@@ -16,11 +16,11 @@ public class SumArray {
     
     synchronized int SumArray(int nums []){
         sum = 0;
-        for (int i = 0; i < 10; i++) {
-            sum += sum;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
             System.out.println("Total acumulado de "+Thread.currentThread().getName()+" es "+ sum);
         try {
-            Thread.sleep(10);
+            Thread.sleep(100);
         } catch (InterruptedException ex) {
             System.out.println("Hilo interrumpido");
         }
@@ -38,7 +38,7 @@ class MiHilo implements Runnable{
     MiHilo(String Nombre, int nums[]){
         hilo = new Thread(this, Nombre);
         a = nums;
-    }//MiHilo
+    }//Constructor MiHilo
     
     public static MiHilo creaEInicia (String Nombre, int nums[]){
         MiHilo miHilo = new MiHilo(Nombre, nums);
@@ -48,7 +48,6 @@ class MiHilo implements Runnable{
     
     @Override
     public void run() {
-        int sum;
         System.out.println(hilo.getName()+ "iniciando...");
         resp = sumarray.SumArray(a);
         System.out.println("Suma para "+hilo.getName()+" es "+resp);
@@ -62,7 +61,6 @@ class Sincronizacion{
         int a[] = {1,2,3,4,5};
         MiHilo mh1 = MiHilo.creaEInicia("#1", a);
         MiHilo mh2 = MiHilo.creaEInicia("#2", a);
-        
         try {
             mh1.hilo.join();
             mh2.hilo.join();
